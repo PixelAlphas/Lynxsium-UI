@@ -1,2 +1,2 @@
 # Lynxsium-UI
-A UI for bedrock edition
+A revival of Lynxsium-UI and PackUI
