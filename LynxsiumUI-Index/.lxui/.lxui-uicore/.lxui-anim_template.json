@@ -1,0 +1,37 @@
+{
+  "namespace": "lxui-anim",
+  "slider_load": {
+    "anim_type": "alpha",
+    "duration": "$lxuivar:slider_anim_duration",
+    "from": "$lxuivar:slider_anim_alpha",
+    "to": "$lxuivar:slider_anim_alpha",
+    "next": "@lxui-anim.slider",
+    "easing": "linear"
+  },
+  "slider": {
+    "anim_type": "alpha",
+    "duration": 0.5,
+    "from": 0,
+    "to": 1,
+    "next": "@lxui-anim.slider_wait",
+    "easing": "linear"
+  },
+  "slider_wait": {
+    "anim_type": "wait",
+    "duration": 7,
+    "next": "@lxui-anim.slider_fade"
+  },
+  "slider_fade": {
+    "anim_type": "alpha",
+    "duration": 0.5,
+    "from": 1,
+    "to": 0,
+    "next": "@lxui-anim.slider_final",
+    "easing": "linear"
+  },
+  "slider_final": { 
+    "anim_type": "wait",
+    "duration": "$lxuivar:slider_anim_max",
+    "next": "@lxui-anim.slider"
+  }
+}

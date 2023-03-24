@@ -1,0 +1,79 @@
+{
+  "namespace": "lxui-slider_loader",
+  "slider_show_runner": {
+    "type": "panel",
+    "controls": [
+      { "slider1@lxui-slider_loader.slider_show_core": {
+          "$lxuivar:slider_anim_duration": 0,
+          "$lxuivar:slider_anim_max": 16,
+          "$lxuivar:slider_anim_alpha": 1,
+          "$lxuivar:slider_text": "ARC-UI is out lads",
+          "$lxuivar:slider_subtitle_text": "seriously tho",
+          "$lxuivar:slider_image": ".lxui/.lxui-assets/slider/slider_1"
+        }
+      },
+      { "slider2@lxui-slider_loader.slider_show_core": {
+          "$lxuivar:slider_anim_duration": 8,
+          "$lxuivar:slider_anim_max": 16,
+          "$lxuivar:slider_anim_alpha": 0,
+          "$lxuivar:slider_text": "Elysium Demo is out!",
+          "$lxuivar:slider_subtitle_text": "Gran Turismo 4.",
+          "$lxuivar:slider_image": ".lxui/.lxui-assets/slider/slider_2"
+        }
+      },
+      { "slider3@lxui-slider_loader.slider_show_core": {
+          "$lxuivar:slider_anim_duration": 16,
+          "$lxuivar:slider_anim_max": 16,
+          "$lxuivar:slider_anim_alpha": 0,
+          "$lxuivar:slider_text": "Bedrock Addon's 8K Jam",
+          "$lxuivar:slider_subtitle_text": "joke on you its over.",
+          "$lxuivar:slider_image": ".lxui/.lxui-assets/slider/slider_3"
+        }
+      }
+    ]
+  },
+  "slider_show_core": {
+    "type": "panel",
+    "size": [ "45%", "45%" ],
+    "offset": [ 0, "-5%" ],
+    "layer": 1,
+    "$lxuivar:slider_anim_duration|default": 4,
+    "$lxuivar:slider_anim_max|default": 4,
+    "$lxuivar:slider_anim_alpha|default": 1,
+    "$lxuivar:slider_anim|default": "@lxui-anim.slider_load",
+    "$lxuivar:slider_text|default": "§e[ Title not written? ]",
+    "$lxuivar:slider_subtitle_text|default": "§e[ Subtitle not written? ]",
+    "$lxuivar:slider_image|default": ".lxui/.lxui-assets/lawnmower",
+    "$lxuivar:slider_border_color|default": [ 1, 1, 1 ],
+    "$lxuivar:slider_text_color|default": [ 0, 0, 0 ],
+    "$lxuivar:slider_gradient_main_color|default": [ 1, 1, 1, 0 ],
+    "$lxuivar:slider_gradient_second_color|default": [ 1, 1, 1, 1 ],
+    "controls": [
+      { "image_slider_main": {
+          "type": "image",
+          "size": [ "100%", "54.5%x" ],
+          "texture": "$lxuivar:slider_image",
+          "alpha": "$lxuivar:slider_anim",
+          "controls": [
+            { "image_slider_border": { "type": "image", "size": [ "100% + 2px", "100% + 2px" ], "texture": "textures/ui/White", "layer": -4, "color": "$lxuivar:slider_border_color"}},
+            { "image_slider_shadow": { "type": "image", "size": [ "100% + 16px", "100% + 16px" ], "texture": ".lxui/.lxui-assets/shadows/shadow", "alpha": 0.7, "layer": -1 }},
+            { "image_slider_text_background": {
+                "type": "panel",
+                "size": [ "100% + 1px", 35 ],
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+                "layer": 1,
+                "alpha": "$lxuivar:slider_anim",
+                "controls": [
+                  { "gradient": { "type": "custom", "renderer": "gradient_renderer", "color1": "$lxuivar:slider_gradient_main_color", "color2": "$lxuivar:slider_gradient_second_color", "ignored": "$is_holographic" }},
+                  { "slider_title": { "type": "label", "layer": 3, "font_type": "smooth", "text": "$lxuivar:slider_text", "alpha": "$lxuivar:slider_anim", "anchor_from": "bottom_left", "anchor_to": "bottom_left", "offset": [ 4, -12 ], "shadow": true, "color": [ 1, 0.8627, 0 ]}},
+                  { "slider_subtitle": { "type": "label", "layer": 3, "font_type": "smooth", "font_scale_factor": 0.80, "text": "$lxuivar:slider_subtitle_text", "alpha": "$lxuivar:slider_anim", "anchor_from": "bottom_left", "anchor_to": "bottom_left", "offset": [ 4, -2 ], "color": "$lxuivar:slider_text_color"}}
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

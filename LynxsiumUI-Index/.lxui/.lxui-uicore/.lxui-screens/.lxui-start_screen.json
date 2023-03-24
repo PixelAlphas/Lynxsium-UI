@@ -1,0 +1,133 @@
+{
+  "namespace": "lxui-start_screen",
+  "roots_section@lxui-arcconfig_loader.core": {
+    "type": "panel",
+    "controls": [
+      { "main_element@lxui-start_screen.main_element": {}},
+      { "slider_show_runner@lxui-slider_loader.slider_show_runner": {
+        "variables": [
+          {
+            "requires": "$dark_theme",
+            "$lxuivar:slider_border_color": [ 0, 0, 0 ],
+            "$lxuivar:slider_text_color": [ 1, 1, 1 ],
+            "$lxuivar:slider_gradient_main_color": [ 0, 0, 0, 0 ],
+            "$lxuivar:slider_gradient_second_color": [ 0, 0, 0, 1 ]
+          }
+        ]
+      }},
+      { "status_top_bar@lxui-common.status_top_bar_core": {
+        "$lxuivar:status_top_bar_screen_text": "\"Start Screen\"",
+        "variables": [
+          {
+            "requires": "$dark_theme",
+            "$lxuivar:status_top_bar_color": [ 0, 0, 0 ],
+            "$lxuivar:status_top_bar_text_color": [ 1, 1, 1 ]
+          }
+        ]
+      }}
+    ]
+  },
+  "main_element": {
+    "type": "panel",
+    "size": [ 266, 44 ],
+    "offset": [ 0, -2 ],
+    "anchor_to": "bottom_middle",
+    "anchor_from": "bottom_middle",
+    "controls": [
+      { "common_panel@lxui-common.dialog_element": {
+          "layer": 1,
+          "$lxuivar:show_close_button": false,
+          "$lxuivar:dialog_background": ".lxui/.lxui-assets/dialogs/dialogtab",
+          "$lxuivar:dialog_alpha": 0.7,
+          "$lxuivar:dialog_color|default": [ 0.9, 0.9, 0.9 ],
+          "variables": [
+            {
+              "requires": "$dark_theme",
+              "$lxuivar:dialog_color": [ 0.1, 0.1, 0.1 ]
+            }
+          ]
+      }},
+      { "buttons_element@lxui-start_screen.buttons_element": {}}
+    ]
+  },
+  "buttons_element": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", 32 ],
+    "offset": [ 7, 0 ],
+    "layer": 1,
+    "controls": [
+      { "setting_button@lxui-button.glyph_button": {
+          "size": [ 32, 32 ],
+          "$pressed_button_name": "button.menu_settings",
+          "$button_content": "lxui-button.button_glyph_element",
+          "$lxuivar:BIE_bubble_text_content_offset": [ 80, -40 ],
+          "$lxuivar:BIE_bubble_text": true,
+          "$lxuivar:BIE_bubble_text_title": "menu.settings",
+          "$lxuivar:BIE_bubble_text_content_anchor": "bottom_middle",
+          "$lxuivar:BIE_bubble_text_description": "Change the existing visuals, sounds, graphics, and resource packs.",
+          "$lxuivar:BIE_glyph_background": ".lxui/.lxui-assets/buttons/start_screen/setting_glyph_background",
+          "$lxuivar:BIE_glyph_main": ".lxui/.lxui-assets/buttons/start_screen/setting_glyph_main",
+          "$lxuivar:BIE_glyph_outline": ".lxui/.lxui-assets/buttons/start_screen/setting_glyph_outline",
+          "$lxuivar:ABE_button_shadow|default": false
+      }},
+      { "pudding00": { "type": "panel", "size": [ 3, 1 ]}},
+      { "achievement_button@lxui-button.glyph_button": {
+          "size": [ 32, 32 ],
+          "$pressed_button_name": "button.menu_achievements",
+          "$button_content": "lxui-button.button_glyph_element",
+          "$lxuivar:BIE_bubble_text_content_offset": [ 45, -40 ],
+          "$lxuivar:BIE_bubble_text": true,
+          "$lxuivar:BIE_bubble_text_title": "Achievement",
+          "$lxuivar:BIE_bubble_text_content_anchor": "bottom_middle",
+          "$lxuivar:BIE_bubble_text_description": "Check what you've achieved! §7§o(Account required)",
+          "$lxuivar:BIE_glyph_background": ".lxui/.lxui-assets/buttons/start_screen/achievement_glyph_background",
+          "$lxuivar:BIE_glyph_main": ".lxui/.lxui-assets/buttons/start_screen/achievement_glyph_main",
+          "$lxuivar:BIE_glyph_outline": ".lxui/.lxui-assets/buttons/start_screen/achievement_glyph_outline"
+      }},
+      { "pudding01": { "type": "panel", "size": [ 3, 1 ]}},
+      { "play_button@lxui-button.text_button": {
+          "size": [ 112, 32 ],
+          "$pressed_button_name": "$play_button_target",
+          "$button_text": "PLAY",
+          "$font_type": "MinecraftTen",
+          "$button_offset": [ 0, -3 ],
+          "$button_pressed_offset": [ 0, -2 ],
+          "$lxuivar:no_theme_variables": true,
+          "$default_button_texture": ".lxui/.lxui-assets/buttons/global/green_button_idle",
+          "$hover_button_texture": ".lxui/.lxui-assets/buttons/global/green_button_hover",
+          "$pressed_button_texture": ".lxui/.lxui-assets/buttons/global/green_button_pressed",
+          "$locked_button_texture": ".lxui/.lxui-assets/buttons/global/green_button_idle"
+      }},
+      { "pudding02": { "type": "panel", "size": [ 3, 1 ]}},
+      { "skin_button@lxui-button.glyph_button": {
+          "size": [ 32, 32 ],
+          "$pressed_button_name": "button.to_profile_screen",
+          "$button_content": "lxui-button.button_glyph_element",
+          "$lxuivar:BIE_bubble_text_content_offset": [ -45, -40 ],
+          "$lxuivar:BIE_bubble_text": true,
+          "$lxuivar:BIE_bubble_text_title": "Character creation / Skin",
+          "$lxuivar:BIE_bubble_text_content_anchor": "bottom_middle",
+          "$lxuivar:BIE_bubble_text_description": "View and change your characters and skins.",
+          "$lxuivar:BIE_glyph_background": ".lxui/.lxui-assets/buttons/start_screen/skin_glyph_background",
+          "$lxuivar:BIE_glyph_main": ".lxui/.lxui-assets/buttons/start_screen/skin_glyph_main",
+          "$lxuivar:BIE_glyph_outline": ".lxui/.lxui-assets/buttons/start_screen/skin_glyph_outline"
+      }},
+      { "pudding03": { "type": "panel", "size": [ 3, 1 ]}},
+      { "marketplace_button@lxui-button.glyph_button": {
+          "size": [ 32, 32 ],
+          "$pressed_button_name": "button.menu_store",
+          "$button_content": "lxui-button.button_glyph_element",
+          "$lxuivar:BIE_bubble_text_content_offset": [ -80, -40 ],
+          "$lxuivar:BIE_bubble_text": true,
+          "$lxuivar:BIE_bubble_text_title": "Marketplace",
+          "$lxuivar:BIE_bubble_text_content_anchor": "bottom_middle",
+          "$lxuivar:BIE_bubble_text_description": "Minecraft's offical store. §7§o(Account required [Optional])",
+          "$lxuivar:BIE_glyph_background": ".lxui/.lxui-assets/buttons/start_screen/store_glyph_background",
+          "$lxuivar:BIE_glyph_main": ".lxui/.lxui-assets/buttons/start_screen/store_glyph_main",
+          "$lxuivar:BIE_glyph_outline": ".lxui/.lxui-assets/buttons/start_screen/store_glyph_outline"
+      
+      }}
+    ]
+  }
+}

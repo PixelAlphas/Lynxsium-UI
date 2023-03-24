@@ -1,0 +1,150 @@
+{
+  "namespace": "lxui-common",
+  "shadow_background": {
+    "type": "image",
+    "size": [ "100% + 14px", "100% + 14px" ],
+    "layer": -1
+  },
+  "dialog_element": {
+    "type": "panel",
+    "$lxuivar:dialog_background|default": "textures/ui/dialog_background_opaque",
+    "$lxuivar:show_close_button|default": true,
+    "$lxuivar:panel_shadow|default": false,
+    "$lxuivar:shadow_rounded_texture|default": false,
+    "$lxuivar:close_button_offset|default": [ 0, 0 ],
+    "$lxuivar:close_button_layer|default": 2,
+    "$lxuivar:dialog_alpha|default": 1,
+    "$lxuivar:dialog_color|default": [ 1, 1, 1 ],
+    "controls": [
+      { "background": { 
+          "type": "image",
+          "layer": 1,
+          "texture": "$lxuivar:dialog_background",
+          "alpha": "$lxuivar:dialog_alpha",
+          "color": "$lxuivar:dialog_color"
+      }},
+      { "shadow": {
+          "type": "panel",
+          "ignored": "(not $lxuivar:panel_shadow)",
+          "controls": [
+            { "square_shadow@lxui-common.shadow_background": {
+                "texture": ".lxui/.lxui-assets/shadows/shadow",
+                "ignored": "$lxuivar:shadow_rounded_texture"
+            }},
+            { "rounded_shadow@lxui-common.shadow_background": {
+                "texture": ".lxui/.lxui-assets/shadows/shadow_rounded",
+                "ignored": "(not $lxuivar:shadow_rounded_texture)"
+            }}
+          ]
+      }},
+      { "close_button": {
+          "type": "panel",
+          "ignored": "(not $lxuivar:show_close_button)",
+          "controls": [
+            { "close@common.close_button": {
+                "layer": "$lxuivar:close_button_layer",
+                "offset": "$lxuivar:close_button_offset"
+            }}
+          ],
+          "bindings": [{ "binding_name": "#close_button_visible", "binding_name_override": "#visible" }]
+        }
+      }
+    ]
+  },
+  "status_top_bar_core": {
+    "type": "panel",
+    "$lxuivar:status_top_bar_screen_text|default": "\"Unknown\"",
+    "$lxuivar:status_top_bar_color|default": [ 1, 1, 1 ],
+    "$lxuivar:status_top_bar_text_color|default": [ 0, 0, 0 ],
+    "controls": [
+      { "bar_texture": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "color": "$lxuivar:status_top_bar_color",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [ "125%", 100 ],
+          "offset": [ 0, -84 ],
+          "layer": -2,
+          "alpha": 0.75
+      }},
+      { "left_element_core": {
+          "type": "stack_panel",
+          "size": [ "100%", 16 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "orientation": "horizontal",
+          "controls": [
+            { "paddings01": { "type": "panel", "size": [ 2, "100%" ]}},
+            { "game_element": {
+                "type": "panel",
+                "size": [ 100, "100%" ],
+                "controls": [
+                  { "arc_logo": {
+                      "type": "image",
+                      "texture": ".lxui/.lxui-assets/minecraft_logo",
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "size": [ 12, 12 ],
+                      "offset": [ 2, 0 ]
+                  }},
+                  { "game_name": {
+                      "type": "label",
+                      "color": "$lxuivar:status_top_bar_text_color",
+                      "text": "Bedrock Edition",
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "offset": [ 20, 0 ]
+                  }}
+                ]
+            }},
+            { "paddings02": { "type": "panel", "size": [ "fill", "100%" ]}},
+            { "game_element": {
+                "type": "panel",
+                "size": [ 100, "100%" ],
+                "controls": [
+                  { "screen_name": {
+                      "type": "label",
+                      "color": "$lxuivar:status_top_bar_text_color",
+                      "text": "$lxuivar:status_top_bar_screen_text"
+                  }}
+                ]
+            }},
+            { "paddings03": { "type": "panel", "size": [ "fill", "100%" ]}},
+            { "game_element": {
+                "type": "panel",
+                "size": [ 100, "100%" ],
+                "controls": [
+                  { "mc_ver_label": {
+                      "type": "label",
+                      "color": "$lxuivar:status_top_bar_text_color",
+                      "text": "#text",
+                      "anchor_from": "right_middle",
+                      "anchor_to": "right_middle",
+                      "offset": [ -2, 0 ],
+                      "bindings": [
+                        { "binding_name": "#version" },
+                        { "binding_type": "view",
+                          "source_property_name": "('| ' + #version)",
+                          "target_property_name": "#text"
+                        }
+                      ]
+                  }}
+                ]
+            }}
+          ]
+      }}
+    ]
+  },
+  "screen_background": {
+    "type": "custom",
+    "ignored": true,
+    "renderer": "gradient_renderer",
+    "layer": -89,
+    "size": [ "100%", "100%" ],
+    "color1": [ 0, 0, 0, 0 ],
+    "color2": [ 0, 0, 0, 0.75 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle"
+  }
+}

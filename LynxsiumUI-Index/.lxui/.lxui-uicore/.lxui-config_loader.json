@@ -1,0 +1,14 @@
+{
+  "namespace": "lxui-arcconfig_loader",
+  "core@lxui-arcconfig_reader.element": {
+    "variables": [
+      { "requires": "(not ($key = 'project_unnamed'))",
+        "$ver|default": "1.0-beta",
+        "$key|default": "failback",
+        "$Testvalue|default": false,
+        "$configname|default": "Failmode Default",
+        "$primary_color|default": [ 1, 1, 1 ]
+      }
+    ]
+  }
+}

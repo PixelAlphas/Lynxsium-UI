@@ -1,0 +1,9 @@
+{ "ui_defs": [
+  "config.json",
+  ".lxui/.lxui-uicore/.lxui-anim_template.json",
+  ".lxui/.lxui-uicore/.lxui-common_template.json",
+  ".lxui/.lxui-uicore/.lxui-button_template.json",
+  ".lxui/.lxui-uicore/.lxui-config_loader.json",
+  ".lxui/.lxui-uicore/.lxui-slider_loader.json",
+  ".lxui/.lxui-uicore/.lxui-screens/.lxui-start_screen.json"
+]}

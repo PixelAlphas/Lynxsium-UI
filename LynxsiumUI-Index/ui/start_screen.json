@@ -1,0 +1,6 @@
+{
+  "start_screen": {
+    "$screen_content": "lxui-start_screen.roots_section",
+    "$screen_bg_content": "lxui-common.screen_background"
+  }
+}
