@@ -1,19 +1,17 @@
 { 
   "format_version": 2,
   "header": {
-    "name": "Project Unnamed",
-    "description": "Mar 24, 2023 | v1.0-alpha",
+    "name": "Lynxsium-UI-Index",
+    "description": "Apr 22, 2023 | v1.0-alpha",
     "uuid": "24e7e684-b140-4978-a869-fa6f7c8fbba0",
-    "version": [ 1, 1, 0 ],
+    "version": [ 1, 0, 0 ],
     "min_engine_version": [ 1, 19, 60 ]
   },
   "modules": [
-    {
-      "type": "resources",
+    { "type": "resources",
       "uuid": "da859433-81c9-4d81-8320-9920e8678481",
       "version": [ 1, 0, 0 ]
-    }
-  ],
+  }],
   "metadata": {
     "authors": [ "Arcdustry (Harlow)" ]
   } 

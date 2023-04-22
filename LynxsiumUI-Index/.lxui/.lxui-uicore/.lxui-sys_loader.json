@@ -1,0 +1,78 @@
+{
+  "namespace": "lxui-sys_loader",
+  "config_core@lxui-sys_config_source.element": {
+    "$lxuivar:config_theme_primary_color|default": [ 1, 1, 1 ],
+    "$lxuivar:config_theme_secondary_color|default": [ 0, 0, 0 ],
+    "$lxuivar:config_theme_text_regular|default": [ 0.5, 0.5, 0.5 ],
+    "$lxuivar:config_theme_alpha|default": 1,
+    "variables": [
+      { "requires": "(not ($key = 'project_unnamed'))",
+        "$ver|default": "1.0-beta",
+        "$key|default": "failback",
+        "$Testvalue|default": false,
+        "$primary_color|default": [ 1, 1, 1 ],
+        "$configname|default": "Failmode Default",
+        "$dark_theme|default": false,
+        "$oled_mode|default": false,
+        "$debug_mode|default": false,
+        "$background_renderer|default": false,
+        "$gradient_renderer|default": true,
+        "$gradient_primary_color|default": [ 0, 0, 0, 0 ],
+        "$gradient_secondary_color|default": [ 0, 0, 0, 0.5 ]
+      },
+      { "requires": "$dark_theme",
+        "$lxuivar:config_theme_primary_color": [ 0.1, 0.1, 0.1 ],
+        "$lxuivar:config_theme_secondary_color": [ 1, 1, 1 ],
+        "$lxuivar:config_theme_text_regular": [ 0.75, 0.75, 0.75 ],
+        "$lxuivar:config_theme_alpha": 0.75
+      },
+      { "requires": "($dark_theme and $oled_mode)",
+        "$lxuivar:config_theme_primary_color": [ 0, 0, 0 ],
+        "$lxuivar:config_theme_secondary_color": [ 1, 1, 1 ],
+        "$lxuivar:config_theme_text_regular": [ 0.7, 0.7, 0.7 ],
+        "$lxuivar:config_theme_alpha": 1
+  }]},
+  "debug_overlay": {
+    "type": "panel",
+    "$lxuivar:debug_overlay_color|default": [ 0, 0.5, 1 ],
+    "layer": 200,
+    "controls": [
+      { "top": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "color": "$lxuivar:debug_overlay_color",
+          "size": [ "100%", 1 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle"
+      }},
+      { "left": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "color": "$lxuivar:debug_overlay_color",
+          "size": [ 1, "100%" ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle"
+      }},
+      { "bottom": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "color": "$lxuivar:debug_overlay_color",
+          "size": [ "100%", 1 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle"
+      }},
+      { "right": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "color": "$lxuivar:debug_overlay_color",
+          "size": [ 1, "100%" ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle"
+    }}]
+  },
+  "panel_core": {
+    "type": "panel",
+    "controls": [
+      { "debug_overlay@lxui-sys_loader.debug_overlay": {}}
+  ]}
+}

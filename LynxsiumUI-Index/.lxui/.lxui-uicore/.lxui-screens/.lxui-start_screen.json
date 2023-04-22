@@ -1,31 +1,168 @@
 {
   "namespace": "lxui-start_screen",
-  "roots_section@lxui-arcconfig_loader.core": {
+  "roots_section@lxui-sys_loader.config_core": {
     "type": "panel",
     "controls": [
       { "main_element@lxui-start_screen.main_element": {}},
       { "slider_show_runner@lxui-slider_loader.slider_show_runner": {
         "variables": [
-          {
-            "requires": "$dark_theme",
+          { "requires": "$dark_theme",
             "$lxuivar:slider_border_color": [ 0, 0, 0 ],
             "$lxuivar:slider_text_color": [ 1, 1, 1 ],
             "$lxuivar:slider_gradient_main_color": [ 0, 0, 0, 0 ],
             "$lxuivar:slider_gradient_second_color": [ 0, 0, 0, 1 ]
-          }
-        ]
+      }]}},
+      { "status_top_bar@lxui-start_screen.status_top_bar_core": { "$lxuivar:status_top_bar_screen_text": "\"Start Screen\"" }}]
+  },
+  "status_top_bar_core": {
+    "type": "panel",
+    "$lxuivar:status_top_bar_screen_text|default": "\"Unknown\"",
+    "controls": [
+      { "bar_texture": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "color": "$lxuivar:config_theme_primary_color",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [ "125%", 100 ],
+          "offset": [ 0, -84 ],
+          "layer": -2,
+          "alpha": "$lxuivar:config_theme_alpha"
       }},
-      { "status_top_bar@lxui-common.status_top_bar_core": {
-        "$lxuivar:status_top_bar_screen_text": "\"Start Screen\"",
-        "variables": [
-          {
-            "requires": "$dark_theme",
-            "$lxuivar:status_top_bar_color": [ 0, 0, 0 ],
-            "$lxuivar:status_top_bar_text_color": [ 1, 1, 1 ]
-          }
-        ]
-      }}
-    ]
+      { "screen_name": {
+          "type": "label",
+          "color": "$lxuivar:config_theme_secondary_color",
+          "text": "$lxuivar:status_top_bar_screen_text",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [ 0, 3 ]
+      }},
+      { "left_element_core": {
+          "type": "stack_panel",
+          "size": [ "100%", 16 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "orientation": "horizontal",
+          "controls": [
+            { "paddings01": { "type": "panel", "size": [ 2, "100%" ]}},
+            { "game_element": {
+                "type": "panel",
+                "size": [ 100, "100%" ],
+                "controls": [
+                  { "arc_logo": {
+                      "type": "image",
+                      "texture": "custom_texture/minecraft_logo",
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "size": [ 12, 12 ],
+                      "offset": [ 2, 0 ]
+                  }},
+                  { "game_name": {
+                      "type": "label",
+                      "color": "$lxuivar:config_theme_secondary_color",
+                      "text": "Bedrock Edition",
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "offset": [ 20, 0 ]
+                }}]
+            }},
+            { "paddings03": { "type": "panel", "size": [ "fill", "100%" ]}},
+            { "xbox_element": {
+                "type": "stack_panel",
+                "size": [ "100%c", "100%" ],
+                "orientation": "horizontal",
+                "use_child_anchors": true,
+                "bindings": [
+                  { "binding_name": "#gamertag_pic_and_label_visible",
+                    "binding_name_override": "#visible"
+                }],
+                "controls": [
+                  { "gametag_profile": {
+                      "type": "image",
+                      "size": [ 12, 12 ],
+                      "layer": 1,
+                      "bindings": [
+                        { "binding_name": "#gamerpic_texture_path", "binding_name_override": "#texture" },
+                        { "binding_name": "#gamerpic_texture_location_type", "binding_name_override": "#texture_file_system" }
+                  ]}},
+                  { "paddings01": { "type": "panel", "size": [ 4, "100%" ]}},
+                  { "gamertag_label": {
+                      "type": "label",
+                      "color": "$lxuivar:config_theme_secondary_color",
+                      "text": "#gamertag_label",
+                      "bindings": [
+                        { "binding_name": "#gamertag_label" }
+                      ]
+                }}]
+            }},
+            { "local_element": {
+                "type": "stack_panel",
+                "size": [ "100%c", "100%" ],
+                "orientation": "horizontal",
+                "use_child_anchors": true,
+                "bindings": [
+                  { "binding_name": "#sign_in_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ],
+                "controls": [
+                  { "local_icon": {
+                      "type": "image",
+                      "size": [ 12, 12 ],
+                      "layer": 1,
+                      "color": "$lxuivar:config_theme_secondary_color",
+                      "texture": ".lxui/.lxui-assets/glyphs/local_account_icon"
+                  }},
+                  { "paddings01": { "type": "panel", "size": [ 4, "100%" ]}},
+                  { "gamertag_label": {
+                      "type": "label",
+                      "color": "$lxuivar:config_theme_secondary_color",
+                      "text": "#playername",
+                      "bindings": [
+                        { "binding_name": "#playername" }
+                      ]
+                  }},
+                  { "paddings02": { "type": "panel", "size": [ 4, "100%" ]}},
+                  { "signin@lxui-button.glyph_button": {
+                      "size": [ 16, 16 ],
+                      "$pressed_button_name": "button.signin",
+                      "$lxuivar:ABE_button_shadow": false,
+                      "$button_content": "lxui-start_screen.sign_in_texture",
+                      "$default_button_texture|default": "",
+                      "$hover_button_texture|default": "",
+                      "$pressed_button_texture|default": "",
+                      "$locked_button_texture|default": "",
+                      "$lxuivar:no_theme_variables": true
+                }}]
+            }},
+            { "game_element": {
+                "type": "stack_panel",
+                "size": [ "100%c", "100%" ],
+                "orientation": "horizontal",
+                "use_child_anchors": true,
+                "controls": [
+                  { "paddings01": { "type": "panel", "size": [ 4, "100%" ]}},
+                  { "white_line": {
+                      "type": "image",
+                      "color": "$lxuivar:config_theme_secondary_color",
+                      "size": [ 1, "100% - 4px" ],
+                      "texture": "textures/ui/White"
+                  }},
+                  { "paddings02": { "type": "panel", "size": [ 4, "100%" ]}},
+                  { "mc_ver_label": {
+                      "type": "label",
+                      "color": "$lxuivar:config_theme_secondary_color",
+                      "text": "#version",
+                      "anchor_from": "right_middle",
+                      "anchor_to": "right_middle",
+                      "bindings": [
+                        { "binding_name": "#version" }
+                      ]
+                }}]
+            }},
+            { "paddings05": { "type": "panel", "size": [ 4, "100%" ]}}
+          ]
+    }}]
   },
   "main_element": {
     "type": "panel",
@@ -38,17 +175,17 @@
           "layer": 1,
           "$lxuivar:show_close_button": false,
           "$lxuivar:dialog_background": ".lxui/.lxui-assets/dialogs/dialogtab",
-          "$lxuivar:dialog_alpha": 0.7,
-          "$lxuivar:dialog_color|default": [ 0.9, 0.9, 0.9 ],
-          "variables": [
-            {
-              "requires": "$dark_theme",
-              "$lxuivar:dialog_color": [ 0.1, 0.1, 0.1 ]
-            }
-          ]
+          "$lxuivar:dialog_alpha": "$lxuivar:config_theme_alpha",
+          "$lxuivar:dialog_color|default": "$lxuivar:config_theme_primary_color"
       }},
       { "buttons_element@lxui-start_screen.buttons_element": {}}
     ]
+  },
+  "sign_in_texture": {
+    "type": "image",
+    "size": [ 12, 12 ],
+    "texture": ".lxui/.lxui-assets/glyphs/sign_in_icon",
+    "color": "$lxuivar:config_theme_secondary_color"
   },
   "buttons_element": {
     "type": "stack_panel",
@@ -68,8 +205,7 @@
           "$lxuivar:BIE_bubble_text_description": "Change the existing visuals, sounds, graphics, and resource packs.",
           "$lxuivar:BIE_glyph_background": ".lxui/.lxui-assets/buttons/start_screen/setting_glyph_background",
           "$lxuivar:BIE_glyph_main": ".lxui/.lxui-assets/buttons/start_screen/setting_glyph_main",
-          "$lxuivar:BIE_glyph_outline": ".lxui/.lxui-assets/buttons/start_screen/setting_glyph_outline",
-          "$lxuivar:ABE_button_shadow|default": false
+          "$lxuivar:BIE_glyph_outline": ".lxui/.lxui-assets/buttons/start_screen/setting_glyph_outline"
       }},
       { "pudding00": { "type": "panel", "size": [ 3, 1 ]}},
       { "achievement_button@lxui-button.glyph_button": {
@@ -126,8 +262,6 @@
           "$lxuivar:BIE_glyph_background": ".lxui/.lxui-assets/buttons/start_screen/store_glyph_background",
           "$lxuivar:BIE_glyph_main": ".lxui/.lxui-assets/buttons/start_screen/store_glyph_main",
           "$lxuivar:BIE_glyph_outline": ".lxui/.lxui-assets/buttons/start_screen/store_glyph_outline"
-      
-      }}
-    ]
+    }}]
   }
 }

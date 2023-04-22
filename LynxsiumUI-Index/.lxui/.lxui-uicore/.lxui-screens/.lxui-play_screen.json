@@ -1,0 +1,240 @@
+{
+  "namespace": "lxui-play_screen",
+  "adv_tab_content": {
+    "type": "panel",
+    "controls": [
+      { "icon_section": {
+          "type": "panel",
+          "offset": [ 0, 0 ],
+          "controls": [
+            { "icon@$tab_icon": { "layer": 2, "anchor_from": "left_middle", "anchor_to": "left_middle" }}]
+      }},
+      { "text_section": {
+          "type": "panel",
+          "controls": [
+            { "text@play.common_button_text": {
+                "layer": 3,
+                "text": "$tab_text_name",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "offset": [ 25, 0 ],
+                "color": "$text_color"
+          }}]
+      }},
+      { "count_section": {
+          "type": "panel",
+          "size": [ "100%c", "100%c" ],
+          "offset": [ -3, 0 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "variables": [
+            { "requires": "$is_checked_state",
+              "$count_background_image": "textures/ui/numberBGFront",
+              "$count_text_color": "$secondary_text_color"
+            },
+            { "requires": "($is_hover_state or not $is_checked_state)",
+              "$count_background_image": "textures/ui/numberBGBack",
+              "$count_text_color": "$text_color"
+          }],
+          "controls": [
+            { "count_background_image": {
+                "type": "image",
+                "texture": "$count_background_image",
+                "size": [ "100%c + 2px", "100%c" ],
+                "anchor_from": "right_middle",
+                "anchor_to": "right_middle",
+                "layer": 3,
+                "controls": [
+                  { "count@play.common_button_text": {
+                      "layer": 1,
+                      "offset": [ 0, 1 ],
+                      "text": "$count_text_name",
+                      "bindings": [
+                        { "binding_name": "$count_text_name" }]
+                }}]
+          }}]
+    }}]
+  },
+  "top_tab@lxui-button.playtab": {
+    "$toggle_tts_enabled_binding_type": "global",
+    "$radio_toggle_group": true,
+    "$toggle_name": "navigation_tab",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "$toggle_tts_type_priority": 1001,
+    "$toggle_tts_toggle_on_text": "",
+    "$toggle_tts_toggle_off_text": "",
+    "$toggle_tts_index_priority": 1002
+  },
+  "world_navigation_tab@lxui-play_screen.top_tab": {
+    "$tab_view_binding_name": "world_navigation_tab_toggle",
+    "$tab_icon": "play.worlds_icon",
+    "$count_text_name": "#world_item_count",
+    "$tab_text_name": "selectWorld.tab.worlds",
+    "$toggle_group_forced_index": 0,
+    "$tab_content": "lxui-play_screen.adv_tab_content"
+  },
+  "friends_navigation_tab@lxui-play_screen.top_tab": {
+    "$tab_view_binding_name": "friends_navigation_tab_toggle",
+    "$tab_icon": "play.friends_icon_2",
+    "$count_text_name": "#friend_world_item_count",
+    "$tab_text_name": "selectWorld.tab.friends",
+    "$toggle_group_forced_index": 1,
+    "$tab_content": "lxui-play_screen.adv_tab_content"
+  },
+  "server_navigation_tab@lxui-play_screen.top_tab": {
+    "$tab_view_binding_name": "server_navigation_tab_toggle",
+    "$tab_icon": "play.server_tab_icon",
+    "$count_text_name": "#server_world_item_count",
+    "$tab_text_name": "selectWorld.tab.thirdParty",
+    "$toggle_group_forced_index": 2,
+    "$tab_content": "lxui-play_screen.adv_tab_content"
+  },
+  "common_tab_navigation_panel_layout": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "size": [ "100%c", 20 ],
+    "ttsSectionContainer": true
+  },
+  "common_tab_content_panel_type": {
+    "type": "input_panel",
+    "anchor_to": "bottom_middle",
+    "anchor_from": "bottom_middle",
+    "size": [ "100%", "100%" ],
+    "offset": [ 0, -1 ],
+    "ttsSectionContainer": true
+  },
+  "common_tab_content_panel": {
+    "type": "panel",
+    "controls": [
+      { "content@$scroll_tab_content": {
+          "layer": 2,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ "100%", "100%" ],
+          "ttsSectionContainer": true
+      }}
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "$visible_bind_toggle_source_control",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "worlds_tab_content_panel@lxui-play_screen.common_tab_content_panel": {
+    "$visible_bind_toggle_source_control": "world_navigation_tab_toggle",
+    "$scroll_tab_content": "lxui-play_screen_world_section.root_contents"
+  },
+  "friends_tab_content_panel@lxui-play_screen.common_tab_content_panel": {
+    "$visible_bind_toggle_source_control": "friends_navigation_tab_toggle",
+    "$scroll_tab_content": "lxui-play_screen_friend_section.root_contents"
+  },
+  "server_tab_content_panel@lxui-play_screen.common_tab_content_panel": {
+    "$visible_bind_toggle_source_control": "server_navigation_tab_toggle",
+    "$scroll_tab_content": "lxui-play_screen_server_section.root_contents"
+  },
+  "default_tab_navigation_panel_layout@lxui-play_screen.common_tab_navigation_panel_layout": {
+    "controls": [
+      { "world_navigation_tab@lxui-play_screen.world_navigation_tab": { "size": [ 100, 25 ]}},
+      { "friends_navigation_tab@lxui-play_screen.friends_navigation_tab": { "size": [ 100, 25 ]}},
+      { "server_navigation_tab@lxui-play_screen.server_navigation_tab": { "size": [ 100, 25 ]}}
+    ]
+  },
+  "default_tab_content_panel_layout@lxui-play_screen.common_tab_content_panel_type": {
+    "controls": [
+      { "worlds_tab_content_panel@lxui-play_screen.worlds_tab_content_panel": {} },
+      { "friends_tab_content_panel@lxui-play_screen.friends_tab_content_panel": {} },
+      { "server_tab_content_panel@lxui-play_screen.server_tab_content_panel": {} }
+    ]
+  },
+  "play_screen_panel@lxui-sys_loader.config_core": {
+    "type": "panel",
+    "controls": [
+      { "bar_texture": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "color": "$lxuivar:config_theme_primary_color",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [ "125%", 100 ],
+          "offset": [ 0, -75 ],
+          "layer": -10,
+          "alpha": "$lxuivar:config_theme_alpha"
+      }},
+      { "close_button@lxui-common.close_button": {
+          "size": [ 20, 20 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left"
+      }},
+      { "close_label": {
+          "type": "label",
+          "text": "Back",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "font_type": "MinecraftTen",
+          "offset": [ 24, 5 ],
+          "color": "$lxuivar:config_theme_secondary_color"
+      }},
+      { "tab_content_panel@lxui-play_screen.default_tab_content_panel_layout": { "layer": 2, "size": [ "100% - 80px", "100% - 24px" ]}},
+      { "tab_content_panel@lxui-play_screen.default_tab_navigation_panel_layout": { "layer": 2 }},
+      { "gamepad_helper_left_bumper@common.gamepad_helper_left_bumper": {
+          "offset": [ -170, 4 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$hide_description": true,
+          "bindings": [
+            {
+              "binding_name": "#bumper_tooltips_visible",
+              "binding_name_override": "#visible"
+          }]
+      }},
+      { "gamepad_helper_right_bumper@common.gamepad_helper_right_bumper": {
+          "offset": [ 170, 4 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$hide_description": true,
+          "bindings": [
+            { "binding_name": "#bumper_tooltips_visible",
+              "binding_name_override": "#visible"
+          }]
+      }},
+      { "keyboard_helper_left_bracket@common.keyboard_left_trigger": {
+          "offset": [ -170, 4 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$hide_description": true,
+          "$text_color": [ 1, 1, 1 ]
+      }},
+      { "keyboard_helper_right_bracket@common.keyboard_right_trigger": {
+          "offset": [ 170, 4 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$hide_description": true,
+          "$text_color": [ 1, 1, 1 ]
+      }}
+    ]
+  },
+  "default_play_screen_panel@lxui-play_screen.play_screen_panel": {
+    "$navigation_tab": "lxui-play_screen.default_tab_navigation_panel_layout",
+    "$tab_content_panel": "lxui-play_screen.default_tab_content_panel_layout"
+  },
+  "root_contents@lxui-sys_loader.config_core": {
+    "type": "panel",
+    "variables": [
+      { "requires": "(not $education_edition and not $is_editor_mode_enabled)",
+        "$main_panel": "lxui-play_screen.default_play_screen_panel"
+    }],
+    "controls": [
+      { "main_control@$main_panel": {}},
+      { "popup_dialog_factory": {
+          "type": "factory",
+          "control_ids": {
+            "join_by_code": "@play.popup_dialog_join_by_code",
+            "high_ping_warning": "@play.popup_dialog_high_ping"
+      }}}
+  ]}
+}

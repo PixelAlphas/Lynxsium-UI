@@ -1,0 +1,101 @@
+{
+  "namespace": "lxui-setting_screen",
+  "dropdown_radio_button@settings_common.option_generic": {
+    "controls": [
+      { "radio_with_label_core@lxui-setting_screen.radio_with_label_core": {
+          "size": [ "100%", "100%" ]
+    }}]
+  },
+  "radio_with_label": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ "fill", "30px" ],
+    "$enabled|default": true,
+    "controls": [
+      { "radio_with_label_core@lxui-setting_screen.radio_with_label_core": {} }
+    ]
+  },
+  "radio_with_label_core@common.radio_toggle": {
+    "$unchecked_control|default": "lxui-setting_screen.radio_visualsunchecked",
+    "$checked_control|default": "lxui-setting_screen.radio_visualschecked",
+    "$unchecked_hover_control|default": "lxui-setting_screen.radio_visualsuncheckedhover",
+    "$checked_hover_control|default": "lxui-setting_screen.radio_visualscheckedhover",
+    "$unchecked_locked_control|default": "lxui-setting_screen.radio_visualsuncheckedlocked",
+    "$unchecked_locked_hover_control|default": "lxui-setting_screen.radio_visualsuncheckedlocked",
+    "$checked_locked_control|default": "lxui-setting_screen.radio_visualscheckedlocked",
+    "$checked_locked_hover_control|default": "lxui-setting_screen.radio_visualscheckedlocked",
+    "$radio_toggle_group": true,
+    "size": [ "100%", "100%c" ],
+    "$toggle_name|default": "$toggle_state_binding_name",
+    "$toggle_enabled_binding_name": "$option_enabled_binding_name",
+    "enabled": "$enabled",
+    "$toggle_enabled_binding_type": "global",
+    "$lxuivar:radio_button_idle|default": ".lxui/.lxui-assets/buttons/toggles/idle_light",
+    "$lxuivar:radio_button_hover|default": ".lxui/.lxui-assets/buttons/toggles/hover_light",
+    "$lxuivar:radio_button_active_idle|default": ".lxui/.lxui-assets/buttons/toggles/pressed_light",
+    "$lxuivar:radio_button_active_hover|default": ".lxui/.lxui-assets/buttons/toggles/pressedhover_light",
+    "variables": [
+      { "requires": "(not $option_enabled_binding_name or not $enabled)",
+        "$toggle_enabled_binding_name": "#not_data_bound",
+        "$toggle_enabled_binding_type": "none"
+      },
+      { "requires": "$dark_theme",
+        "$lxuivar:radio_button_idle": ".lxui/.lxui-assets/buttons/toggles/idle_dark",
+        "$lxuivar:radio_button_hover": ".lxui/.lxui-assets/buttons/toggles/hover_dark",
+        "$lxuivar:radio_button_active_idle": ".lxui/.lxui-assets/buttons/toggles/pressed_dark",
+        "$lxuivar:radio_button_active_hover": ".lxui/.lxui-assets/buttons/toggles/pressedhover_dark"
+      }]
+  },
+  "radio_visuals": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$radio_label_bindings|default": [],
+    "$radio_label_color|default": "$main_header_text_color",
+    "$radio_label_font_type|default": "default",
+    "$radio_anchor|default": "top_left",
+    "anchor_from": "$radio_anchor",
+    "anchor_to": "$radio_anchor",
+    "$lxuivar:theme_color_main|default": [ 1, 1, 1 ],
+    "$lxuivar:theme_color_text_main|default": [ 0, 0, 0 ],
+    "variables": [
+      { "requires": "$dark_theme",
+        "$lxuivar:theme_color_main": [ 0, 0, 0 ],
+        "$lxuivar:theme_color_text_main": [ 1, 1, 1 ]
+    }],
+    "controls": [
+      { "radio_image": {
+          "type": "image",
+          "texture": "$radio_texture",
+          "alpha": 1,
+          "layer": 1,
+          "size": [ "100%", "100%" ]
+      }},
+      { "radio_label": {
+          "type": "label",
+          "text": "$radio_label_text",
+          "font_type": "$radio_label_font_type",
+          "color": "$lxuivar:theme_color_text_main",
+          "size": [ "100% - 10px", "default" ],
+          "alpha": 1,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "text_alignment": "center",
+          "$lxuivar:radio_label_offset|default": [ 0, 0 ],
+          "offset": "$lxuivar:radio_label_offset",
+          "layer": 2,
+          "$is_pressed|default": false,
+          "bindings": "$radio_label_bindings",
+          "variables": [
+            { "requires": "$is_pressed",
+              "$lxuivar:radio_label_offset": [ 0, 1 ]
+          }]
+    }}]
+  },
+  "radio_visualsunchecked@lxui-setting_screen.radio_visuals": { "$radio_texture": "$lxuivar:radio_button_idle", "$radio_label_color": "$7_color_format" },
+  "radio_visualsuncheckedhover@lxui-setting_screen.radio_visuals": { "$radio_texture": "$lxuivar:radio_button_hover", "$radio_label_color": "$light_button_hover_text_color" },
+  "radio_visualsuncheckedlocked@lxui-setting_screen.radio_visuals": { "$radio_texture": "$lxuivar:radio_button_idle", "$radio_label_color": "$light_button_pressed_text_color" },
+  "radio_visualschecked@lxui-setting_screen.radio_visuals": { "$radio_texture": "$lxuivar:radio_button_active_idle", "$radio_label_color": "$light_button_pressed_text_color", "$is_pressed": true },
+  "radio_visualscheckedhover@lxui-setting_screen.radio_visuals": { "$radio_texture": "$lxuivar:radio_button_active_hover", "$radio_label_color": "$light_button_hover_text_color", "$is_pressed": true },
+  "radio_visualscheckedlocked@lxui-setting_screen.radio_visuals": { "$radio_texture": "$lxuivar:radio_button_active_idle", "$radio_label_color": "$light_button_default_text_color", "$is_pressed": true }
+}

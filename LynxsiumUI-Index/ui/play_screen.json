@@ -1,0 +1,16 @@
+{
+  "play_screen@common.base_screen": {
+    "$screen_content": "lxui-play_screen.root_contents",
+    "$screen_bg_content": "lxui-common.screen_background",
+    "$world_picker_screen": false,
+    "$lxuivar:background_renderer_blur_enable": true
+  },
+  "sign_in_realms_image": { "$chevron_offset": [ -3, 0 ], "$portal_offset": [ -6, 0 ], "variables": []},
+  "network_world_header/header_panel/network_world_header_text": { "color": "$lxuivar:config_theme_secondary_color" },
+  "edit_icon": { "color": "$lxuivar:config_theme_secondary_color" },
+  "world_list_text": { "color": "$lxuivar:config_theme_secondary_color" },
+  "realms_list_text": { "color": "$lxuivar:config_theme_secondary_color" },
+  "realms_world_header": { "color": "$lxuivar:config_theme_secondary_color" },
+  "local_world_name": { "color": "$lxuivar:config_theme_secondary_color" },
+  "realms_sign_in_prompt_label": { "color": "$lxuivar:config_theme_secondary_color" }
+}

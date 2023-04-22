@@ -3,7 +3,13 @@
   ".lxui/.lxui-uicore/.lxui-anim_template.json",
   ".lxui/.lxui-uicore/.lxui-common_template.json",
   ".lxui/.lxui-uicore/.lxui-button_template.json",
-  ".lxui/.lxui-uicore/.lxui-config_loader.json",
+  ".lxui/.lxui-uicore/.lxui-toggle_template.json",
+  ".lxui/.lxui-uicore/.lxui-sys_loader.json",
   ".lxui/.lxui-uicore/.lxui-slider_loader.json",
-  ".lxui/.lxui-uicore/.lxui-screens/.lxui-start_screen.json"
+  ".lxui/.lxui-uicore/.lxui-screens/.lxui-play_screen_section_core/.lxui-friend_section.json",
+  ".lxui/.lxui-uicore/.lxui-screens/.lxui-play_screen_section_core/.lxui-world_section.json",
+  ".lxui/.lxui-uicore/.lxui-screens/.lxui-play_screen_section_core/.lxui-server_section.json",
+  ".lxui/.lxui-uicore/.lxui-screens/.lxui-start_screen.json",
+  ".lxui/.lxui-uicore/.lxui-screens/.lxui-setting_screen.json",
+  ".lxui/.lxui-uicore/.lxui-screens/.lxui-play_screen.json"
 ]}

@@ -10,8 +10,7 @@
           "$lxuivar:slider_text": "ARC-UI is out lads",
           "$lxuivar:slider_subtitle_text": "seriously tho",
           "$lxuivar:slider_image": ".lxui/.lxui-assets/slider/slider_1"
-        }
-      },
+      }},
       { "slider2@lxui-slider_loader.slider_show_core": {
           "$lxuivar:slider_anim_duration": 8,
           "$lxuivar:slider_anim_max": 16,
@@ -19,8 +18,7 @@
           "$lxuivar:slider_text": "Elysium Demo is out!",
           "$lxuivar:slider_subtitle_text": "Gran Turismo 4.",
           "$lxuivar:slider_image": ".lxui/.lxui-assets/slider/slider_2"
-        }
-      },
+      }},
       { "slider3@lxui-slider_loader.slider_show_core": {
           "$lxuivar:slider_anim_duration": 16,
           "$lxuivar:slider_anim_max": 16,
@@ -28,8 +26,7 @@
           "$lxuivar:slider_text": "Bedrock Addon's 8K Jam",
           "$lxuivar:slider_subtitle_text": "joke on you its over.",
           "$lxuivar:slider_image": ".lxui/.lxui-assets/slider/slider_3"
-        }
-      }
+      }}
     ]
   },
   "slider_show_core": {

@@ -5,6 +5,53 @@
     "size": [ "100% + 14px", "100% + 14px" ],
     "layer": -1
   },
+  "title_text": {
+    "type": "panel",
+    "size": [ "100%", 14 ],
+    "$label_text|default": "...?",
+    "controls": [
+      { "background": {
+          "type": "image",
+          "texture": ".lxui/.lxui-assets/text_background",
+          "size": [ "100%", "100%" ],
+          "color": "$lxuivar:config_theme_primary_color",
+          "alpha": "$lxuivar:config_theme_alpha"
+      }},
+      { "list_label": {
+          "type": "label",
+          "size": [ "100% - 8px", 10 ],
+          "font_type": "MinecraftTen",
+          "text": "$label_text",
+          "color": "$lxuivar:config_theme_secondary_color",
+          "offset": [ 0, -2 ]
+      }},
+      { "outline": {
+          "type": "image",
+          "color": "$lxuivar:config_theme_secondary_color",
+          "texture": "textures/ui/White",
+          "size": [ "100% - 8px", 1 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "offset": [ 0, -1 ]
+    }}]
+  },
+  "close_button_panel": {
+    "type": "panel",
+    "layer": 1,
+    "size": "$close_button_panel_size",
+    "$button_alpha|default": 1,
+    "controls": [
+      { "close_button_image@common.close_button_image": {
+        "alpha": "$button_alpha",
+        "color": "$lxuivar:config_theme_secondary_color"
+    }}]
+  },
+  "close_button@common.close_button": {
+    "controls": [
+      { "default@lxui-common.close_button_panel": { "$close_button_texture": ".lxui/.lxui-assets/glyphs/close_button_idle"}},
+      { "hover@lxui-common.close_button_panel": { "$close_button_texture": ".lxui/.lxui-assets/glyphs/close_button_hover"}},
+      { "pressed@lxui-common.close_button_panel": { "$close_button_texture": ".lxui/.lxui-assets/glyphs/close_button_pressed"}}
+  ]},
   "dialog_element": {
     "type": "panel",
     "$lxuivar:dialog_background|default": "textures/ui/dialog_background_opaque",
@@ -34,8 +81,7 @@
             { "rounded_shadow@lxui-common.shadow_background": {
                 "texture": ".lxui/.lxui-assets/shadows/shadow_rounded",
                 "ignored": "(not $lxuivar:shadow_rounded_texture)"
-            }}
-          ]
+          }}]
       }},
       { "close_button": {
           "type": "panel",
@@ -44,107 +90,37 @@
             { "close@common.close_button": {
                 "layer": "$lxuivar:close_button_layer",
                 "offset": "$lxuivar:close_button_offset"
-            }}
-          ],
+          }}],
           "bindings": [{ "binding_name": "#close_button_visible", "binding_name_override": "#visible" }]
-        }
-      }
-    ]
+      }}]
   },
-  "status_top_bar_core": {
+  "screen_background@lxui-sys_loader.config_core": {
     "type": "panel",
-    "$lxuivar:status_top_bar_screen_text|default": "\"Unknown\"",
-    "$lxuivar:status_top_bar_color|default": [ 1, 1, 1 ],
-    "$lxuivar:status_top_bar_text_color|default": [ 0, 0, 0 ],
     "controls": [
-      { "bar_texture": {
-          "type": "image",
-          "texture": "textures/ui/White",
-          "color": "$lxuivar:status_top_bar_color",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "size": [ "125%", 100 ],
-          "offset": [ 0, -84 ],
-          "layer": -2,
-          "alpha": 0.75
+      { "gradient_renderer": {
+          "ignored": "(not $gradient_renderer)",
+          "type": "custom",
+          "renderer": "gradient_renderer",
+          "layer": -100,
+          "size": [ "100%", "100%" ],
+          "color1": "$gradient_primary_color",
+          "color2": "$gradient_secondary_color",
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle"
       }},
-      { "left_element_core": {
-          "type": "stack_panel",
-          "size": [ "100%", 16 ],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "orientation": "horizontal",
-          "controls": [
-            { "paddings01": { "type": "panel", "size": [ 2, "100%" ]}},
-            { "game_element": {
-                "type": "panel",
-                "size": [ 100, "100%" ],
-                "controls": [
-                  { "arc_logo": {
-                      "type": "image",
-                      "texture": ".lxui/.lxui-assets/minecraft_logo",
-                      "anchor_from": "left_middle",
-                      "anchor_to": "left_middle",
-                      "size": [ 12, 12 ],
-                      "offset": [ 2, 0 ]
-                  }},
-                  { "game_name": {
-                      "type": "label",
-                      "color": "$lxuivar:status_top_bar_text_color",
-                      "text": "Bedrock Edition",
-                      "anchor_from": "left_middle",
-                      "anchor_to": "left_middle",
-                      "offset": [ 20, 0 ]
-                  }}
-                ]
-            }},
-            { "paddings02": { "type": "panel", "size": [ "fill", "100%" ]}},
-            { "game_element": {
-                "type": "panel",
-                "size": [ 100, "100%" ],
-                "controls": [
-                  { "screen_name": {
-                      "type": "label",
-                      "color": "$lxuivar:status_top_bar_text_color",
-                      "text": "$lxuivar:status_top_bar_screen_text"
-                  }}
-                ]
-            }},
-            { "paddings03": { "type": "panel", "size": [ "fill", "100%" ]}},
-            { "game_element": {
-                "type": "panel",
-                "size": [ 100, "100%" ],
-                "controls": [
-                  { "mc_ver_label": {
-                      "type": "label",
-                      "color": "$lxuivar:status_top_bar_text_color",
-                      "text": "#text",
-                      "anchor_from": "right_middle",
-                      "anchor_to": "right_middle",
-                      "offset": [ -2, 0 ],
-                      "bindings": [
-                        { "binding_name": "#version" },
-                        { "binding_type": "view",
-                          "source_property_name": "('| ' + #version)",
-                          "target_property_name": "#text"
-                        }
-                      ]
-                  }}
-                ]
-            }}
-          ]
+      { "background_renderer": {
+          "ignored": "(not $background_renderer)",
+          "type": "image",
+          "layer": -120,
+          "fill": true,
+          "texture": "$lxuivar:background_renderer_texture",
+          "size": [ "100%", "100%" ],
+          "$lxuivar:background_renderer_texture|default": "custom_texture/background",
+          "$lxuivar:background_renderer_blur_enable|default": false,
+          "variables": [
+            { "requires": "$lxuivar:background_renderer_blur_enable",
+              "$lxuivar:background_renderer_texture": "custom_texture/background_blur"
+          }]
       }}
-    ]
-  },
-  "screen_background": {
-    "type": "custom",
-    "ignored": true,
-    "renderer": "gradient_renderer",
-    "layer": -89,
-    "size": [ "100%", "100%" ],
-    "color1": [ 0, 0, 0, 0 ],
-    "color2": [ 0, 0, 0, 0.75 ],
-    "anchor_from": "bottom_middle",
-    "anchor_to": "bottom_middle"
-  }
+  ]}
 }

@@ -1,4 +1,15 @@
-{ "namespace": "lxui-arcconfig_reader", "element": { "type":"panel","$key":"project_unnamed","$ver":"1.0-stable",
-    "$primary_color": [ 1, 1, 1 ],
-    "$dark_theme": true
+{ "namespace": "lxui-sys_config_source", "element": { "type":"panel","$key":"project_unnamed","$ver":"1.0-stable",
+    // [ --- Theme --- ]
+      // Color Scheme
+      "$primary_color": [ 1, 1, 1 ], // NOT IMPLEMENTED YET
+      "$dark_theme": false,
+      /*└*/"$oled_mode": false, // required 'dark_theme' to be enabled
+      
+      "$background_renderer": false,
+      "$gradient_renderer": true,
+      /*├*/"$gradient_primary_color": [ 0, 0, 0, 0 ],
+      /*└*/"$gradient_secondary_color": [ 0, 0, 0, 0.5 ],
+      
+    // Misc
+    "$debug_mode": false // harlow private debug UI only >:(, does not work without it
 }}
