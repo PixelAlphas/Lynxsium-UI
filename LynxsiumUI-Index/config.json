@@ -2,14 +2,22 @@
     // [ --- Theme --- ]
       // Color Scheme
       "$primary_color": [ 1, 1, 1 ], // NOT IMPLEMENTED YET
+      
+      // Theme
       "$dark_theme": false,
       /*└*/"$oled_mode": false, // required 'dark_theme' to be enabled
       
+      // Icon
+      "$icon_custom_mode": true, // allows icons to be modified
+      /*└*/"$is_uncolored": false,
+      /*└*/"$is_material": false,
+      
+      // Background rendering
       "$background_renderer": false,
       "$gradient_renderer": true,
       /*├*/"$gradient_primary_color": [ 0, 0, 0, 0 ],
       /*└*/"$gradient_secondary_color": [ 0, 0, 0, 0.5 ],
       
-    // Misc
-    "$debug_mode": false // harlow private debug UI only >:(, does not work without it
+    // [ --- Miscellaneous --- ]
+      "$debug_mode": false // harlow private debug UI only >:(, does not work without it
 }}

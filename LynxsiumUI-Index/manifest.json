@@ -2,9 +2,9 @@
   "format_version": 2,
   "header": {
     "name": "Lynxsium-UI-Index",
-    "description": "Apr 22, 2023 | v1.0-alpha",
+    "description": "Apr 26, 2023 | v1.0.1-alpha",
     "uuid": "24e7e684-b140-4978-a869-fa6f7c8fbba0",
-    "version": [ 1, 0, 0 ],
+    "version": [ 1, 0, 1 ],
     "min_engine_version": [ 1, 19, 60 ]
   },
   "modules": [

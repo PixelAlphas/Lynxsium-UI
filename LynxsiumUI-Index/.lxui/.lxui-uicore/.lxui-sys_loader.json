@@ -18,7 +18,10 @@
         "$background_renderer|default": false,
         "$gradient_renderer|default": true,
         "$gradient_primary_color|default": [ 0, 0, 0, 0 ],
-        "$gradient_secondary_color|default": [ 0, 0, 0, 0.5 ]
+        "$gradient_secondary_color|default": [ 0, 0, 0, 0.5 ],
+        "$icon_custom_mode|default": false,
+        "$is_colored|default": false,
+        "$is_material|default": false
       },
       { "requires": "$dark_theme",
         "$lxuivar:config_theme_primary_color": [ 0.1, 0.1, 0.1 ],
@@ -32,47 +35,18 @@
         "$lxuivar:config_theme_text_regular": [ 0.7, 0.7, 0.7 ],
         "$lxuivar:config_theme_alpha": 1
   }]},
-  "debug_overlay": {
-    "type": "panel",
-    "$lxuivar:debug_overlay_color|default": [ 0, 0.5, 1 ],
-    "layer": 200,
-    "controls": [
-      { "top": {
-          "type": "image",
-          "texture": "textures/ui/White",
-          "color": "$lxuivar:debug_overlay_color",
-          "size": [ "100%", 1 ],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle"
-      }},
-      { "left": {
-          "type": "image",
-          "texture": "textures/ui/White",
-          "color": "$lxuivar:debug_overlay_color",
-          "size": [ 1, "100%" ],
-          "anchor_from": "left_middle",
-          "anchor_to": "left_middle"
-      }},
-      { "bottom": {
-          "type": "image",
-          "texture": "textures/ui/White",
-          "color": "$lxuivar:debug_overlay_color",
-          "size": [ "100%", 1 ],
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle"
-      }},
-      { "right": {
-          "type": "image",
-          "texture": "textures/ui/White",
-          "color": "$lxuivar:debug_overlay_color",
-          "size": [ 1, "100%" ],
-          "anchor_from": "right_middle",
-          "anchor_to": "right_middle"
-    }}]
-  },
-  "panel_core": {
-    "type": "panel",
-    "controls": [
-      { "debug_overlay@lxui-sys_loader.debug_overlay": {}}
-  ]}
+  "glyph_template": {
+    "type": "image",
+    "size": [ 16, 16 ],
+    "color": "$lxuivar:glyph_color",
+    "$lxuivar:glyph_color|default": [ 1, 1, 1 ],
+    "$lxuivar:glyph_type|default": "colored",
+    "variables": [
+      { "requires": "(($icon_custom_mode) and ($is_uncolored) and not ($is_material))",
+        "$lxuivar:glyph_type": "uncolored"
+      },
+      { "requires": "(($icon_custom_mode) and ($is_material) and not ($is_uncolored))",
+        "$lxuivar:glyph_type": "material",
+        "$lxuivar:glyph_color": "$lxuivar:config_theme_secondary_color"
+  }]}
 }

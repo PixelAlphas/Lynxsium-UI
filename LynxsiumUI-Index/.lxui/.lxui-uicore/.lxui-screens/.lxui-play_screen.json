@@ -1,5 +1,8 @@
 {
   "namespace": "lxui-play_screen",
+  "world_icon@lxui-sys_loader.glyph_template": { "texture": "('.lxui/.lxui-assets/glyphs/' + $lxuivar:glyph_type + '/world_glyph')"},
+  "friend_icon@lxui-sys_loader.glyph_template": { "texture": "('.lxui/.lxui-assets/glyphs/' + $lxuivar:glyph_type + '/friend_glyph')"},
+  "server_icon@lxui-sys_loader.glyph_template": { "texture": "('.lxui/.lxui-assets/glyphs/' + $lxuivar:glyph_type + '/server_glyph')"},
   "adv_tab_content": {
     "type": "panel",
     "controls": [
@@ -68,7 +71,7 @@
   },
   "world_navigation_tab@lxui-play_screen.top_tab": {
     "$tab_view_binding_name": "world_navigation_tab_toggle",
-    "$tab_icon": "play.worlds_icon",
+    "$tab_icon": "lxui-play_screen.world_icon",
     "$count_text_name": "#world_item_count",
     "$tab_text_name": "selectWorld.tab.worlds",
     "$toggle_group_forced_index": 0,
@@ -76,7 +79,7 @@
   },
   "friends_navigation_tab@lxui-play_screen.top_tab": {
     "$tab_view_binding_name": "friends_navigation_tab_toggle",
-    "$tab_icon": "play.friends_icon_2",
+    "$tab_icon": "lxui-play_screen.friend_icon",
     "$count_text_name": "#friend_world_item_count",
     "$tab_text_name": "selectWorld.tab.friends",
     "$toggle_group_forced_index": 1,
@@ -84,7 +87,7 @@
   },
   "server_navigation_tab@lxui-play_screen.top_tab": {
     "$tab_view_binding_name": "server_navigation_tab_toggle",
-    "$tab_icon": "play.server_tab_icon",
+    "$tab_icon": "lxui-play_screen.server_icon",
     "$count_text_name": "#server_world_item_count",
     "$tab_text_name": "selectWorld.tab.thirdParty",
     "$toggle_group_forced_index": 2,
