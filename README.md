@@ -5,6 +5,9 @@ This is revival version, and yet again. created in mobile android phone.
 
 Lynxsium-UI is heavily inspired from UIPack, or was originally trying to recreate the whole UI from scratch to make it look like UIPack. This UI also packed with tons of useful configuration system ( totally not borrowed from my previous project aka ARC-UI ), with color schemes from light theme to OLED theme. lots more to discover!
 
+# WARNING
+LYNXSIUM-UI will be paused in foreseeable future. alongside with rewrite.
+
 ### Features ( enable via configuration "config.json" )
 [ Note here - "*" means that feature are disabled by default ]
 - Color schemes, yes. something you would usually use I suppose, this has light theme (default), dark theme and OLED theme.
